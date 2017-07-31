@@ -3,17 +3,32 @@ const bodyParser = require("body-parser")
 const expressValidator = require("express-validator")
 const mustacheExpress = require("mustache-express")
 
+// var jsonfile = require("jsonfile")
+// var file = "./todos.json"
+
+// console.log(file)
+let obj = { name: "Obama" }
+
+// jsonfile.readFile(file, function(err, obj) {
+//   console.dir(obj)
+// })
+//
+// jsonfile.writeFile(file, obj, { flag: "a" }, function(err) {
+//   console.error(err)
+// })
+
+// console.log(file)
+
 const app = express()
 
 app.use(express.static("public"))
 
-//Test
 let todos = {
   todos: [
-    { id: 0, item: "Learn Node basics", status: "complete" },
-    { id: 1, item: "Learn Express basics", status: "incomplete" },
-    { id: 2, item: "Learn HTML forms with Express", status: "incomplete" },
-    { id: 3, item: "Learn to sing", status: "complete" }
+    { id: 0, item: "Pick up dog food", status: "complete" },
+    { id: 1, item: "Paint the bathroom", status: "incomplete" },
+    { id: 2, item: "Go to Canada", status: "incomplete" },
+    { id: 3, item: "Check out new vegan burger place", status: "complete" }
   ]
 }
 
