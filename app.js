@@ -7,7 +7,7 @@ const mustacheExpress = require("mustache-express")
 // var file = "./todos.json"
 
 // console.log(file)
-let obj = { name: "Obama" }
+// let obj = { name: "Obama" }
 
 // jsonfile.readFile(file, function(err, obj) {
 //   console.dir(obj)
