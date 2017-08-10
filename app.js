@@ -3,22 +3,6 @@ const bodyParser = require("body-parser")
 const expressValidator = require("express-validator")
 const mustacheExpress = require("mustache-express")
 
-// var jsonfile = require("jsonfile")
-// var file = "./todos.json"
-
-// console.log(file)
-// let obj = { name: "Obama" }
-
-// jsonfile.readFile(file, function(err, obj) {
-//   console.dir(obj)
-// })
-//
-// jsonfile.writeFile(file, obj, { flag: "a" }, function(err) {
-//   console.error(err)
-// })
-
-// console.log(file)
-
 const app = express()
 
 app.use(express.static("public"))
@@ -49,13 +33,10 @@ app.get("/", function(req, res) {
   let completedItems = todos.todos.filter(todo => todo.status === "complete")
   let incompleteItems = todos.todos.filter(todo => todo.status === "incomplete")
 
-  let listByCompletion = {
-    complete: [],
-    incomplete: []
+  const listByCompletion = {
+    complete: todos.todos.filter(todo => todo.status === "complete"),
+    incomplete: todos.todos.filter(todo => todo.status === "incomplete")
   }
-
-  listByCompletion.complete = completedItems
-  listByCompletion.incomplete = incompleteItems
 
   res.render("index", listByCompletion)
 })
